@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Search, TrendingUp, Video, Share2, ShoppingCart, RefreshCw, ChevronDown, ChevronUp, BarChart3, Info, Music, Target, DollarSign, Layers, Lightbulb, Users, Globe, MapPin, Eye, Clock, MousePointer, Smartphone, Monitor, ExternalLink, Calendar } from 'lucide-react';
+import { GoogleIcon, TikTokIcon, MetaIcon, GoogleAnalyticsIcon } from './PlatformIcons';
 
 export default function DataLayer() {
   // Helper function to get current week info
@@ -130,22 +131,22 @@ export default function DataLayer() {
     return [
       {
         source: 'Google Trends',
-        IconComponent: Search,
+        IconComponent: GoogleIcon,
         text: '"Nuggets San Fernando" lidera búsquedas con 88/100 de interés y +42% de crecimiento. 8 keywords de delivery y congelados en tendencia en los últimos 3 meses.',
       },
       {
         source: 'TikTok',
-        IconComponent: Video,
+        IconComponent: TikTokIcon,
         text: '#SanFernando alcanza 45M views. #LaBuenaFamilia crece +65% en Perú. Contenido de recetas rápidas tiene engagement 8.8/10.',
       },
       {
         source: 'Meta',
-        IconComponent: Share2,
+        IconComponent: MetaIcon,
         text: 'Sentimiento social positivo (72%). "Recetas fáciles" genera 38K menciones. Delivery de pollo y lonchera saludable en crecimiento.',
       },
       {
         source: 'GA4',
-        IconComponent: BarChart3,
+        IconComponent: GoogleAnalyticsIcon,
         text: '87,400 sesiones generaron 9,340 compras (10.7% conversión). Página "/congelados" lidera con S/ 168K de revenue mensual.',
       },
     ];
@@ -301,10 +302,10 @@ export default function DataLayer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
           {insights.map((insight, idx) => {
             const colorScheme =
-              insight.source === 'Google Trends' ? { bg: 'bg-sf-blueLight/10', text: 'text-sf-blueLight', icon: 'bg-sf-blueLight', badge: 'bg-sf-blueLight/20 text-sf-blueLight' } :
-              insight.source === 'TikTok' ? { bg: 'bg-sf-success/10', text: 'text-sf-success', icon: 'bg-sf-success', badge: 'bg-sf-success/20 text-sf-charcoal' } :
-              insight.source === 'Meta' ? { bg: 'bg-sf-blue/10', text: 'text-sf-accent', icon: 'bg-sf-blue', badge: 'bg-sf-blue/20 text-sf-accent' } :
-              insight.source === 'GA4' ? { bg: 'bg-sf-warning/10', text: 'text-sf-warning', icon: 'bg-sf-warning', badge: 'bg-sf-warning/20 text-sf-warning' } :
+              insight.source === 'Google Trends' ? { bg: 'bg-platform-google/10', text: 'text-platform-google', icon: 'bg-platform-google', badge: 'bg-platform-google/20 text-platform-google' } :
+              insight.source === 'TikTok' ? { bg: 'bg-platform-tiktok/10', text: 'text-sf-lightGray', icon: 'bg-platform-tiktok', badge: 'bg-sf-mediumGray/20 text-sf-lightGray' } :
+              insight.source === 'Meta' ? { bg: 'bg-platform-meta/10', text: 'text-platform-meta', icon: 'bg-platform-meta', badge: 'bg-platform-meta/20 text-platform-meta' } :
+              insight.source === 'GA4' ? { bg: 'bg-platform-ga4/10', text: 'text-platform-ga4', icon: 'bg-platform-ga4', badge: 'bg-platform-ga4/20 text-platform-ga4' } :
               { bg: 'bg-sf-blueLight/10', text: 'text-sf-blueLight', icon: 'bg-sf-blueLight', badge: 'bg-sf-blueLight/20 text-sf-blueLight' };
 
             const sourceScore =
@@ -340,9 +341,9 @@ export default function DataLayer() {
         </div>
 
         {/* Multi-Source Analysis - Full Width at Bottom */}
-        <div className="relative bg-gradient-to-r from-sf-blue/20 to-sf-blueLight/20 rounded-xl p-3 sm:p-6 border border-sf-blue/30">
+        <div className="relative bg-sf-blue/20 rounded-xl p-3 sm:p-6 border border-sf-blue/30">
           <div className="flex items-start gap-2 sm:gap-4">
-            <div className="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-br from-sf-blue to-sf-blueLight rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 sm:w-14 sm:h-14 bg-sf-blue rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
               <Layers className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
             </div>
             <div className="flex-1 min-w-0">
@@ -361,7 +362,7 @@ export default function DataLayer() {
               </div>
             </div>
           </div>
-          <div className="absolute top-0 left-0 w-1 sm:w-1.5 h-full bg-gradient-to-b from-sf-blue to-sf-blueLight rounded-l-xl"></div>
+          <div className="absolute top-0 left-0 w-1 sm:w-1.5 h-full bg-sf-blue rounded-l-xl"></div>
         </div>
       </div>
 
@@ -369,10 +370,10 @@ export default function DataLayer() {
       <div className="bg-sf-dark rounded-xl shadow-lg overflow-hidden border border-sf-blue/10">
         <button
           onClick={() => toggleSection('trends')}
-          className="w-full bg-sf-blueLight text-white p-3 sm:p-4 flex items-center justify-between hover:brightness-110 transition"
+          className="w-full bg-platform-google text-white p-3 sm:p-4 flex items-center justify-between hover:brightness-110 transition"
         >
           <div className="flex items-center gap-2 sm:gap-3">
-            <Search className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <GoogleIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
             <div className="text-left min-w-0">
               <h3 className="text-sm sm:text-base font-bold">Google Trends</h3>
               <p className="text-[10px] sm:text-xs text-white/80">Keywords consumo masivo - Score: {scores.search}/10</p>
@@ -443,13 +444,13 @@ export default function DataLayer() {
       <div className="bg-sf-dark rounded-xl shadow-lg overflow-hidden border border-sf-blue/10">
         <button
           onClick={() => toggleSection('tiktok')}
-          className="w-full bg-sf-success text-sf-charcoal p-3 sm:p-4 flex items-center justify-between hover:brightness-110 transition"
+          className="w-full bg-platform-tiktok text-white p-3 sm:p-4 flex items-center justify-between hover:brightness-125 transition"
         >
           <div className="flex items-center gap-2 sm:gap-3">
-            <Video className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <TikTokIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
             <div className="text-left min-w-0">
               <h3 className="text-sm sm:text-base font-bold">TikTok Creative Center</h3>
-              <p className="text-[10px] sm:text-xs text-sf-charcoal/80">Hashtags virales - Score: {scores.trend}/10</p>
+              <p className="text-[10px] sm:text-xs text-white/80">Hashtags virales - Score: {scores.trend}/10</p>
             </div>
           </div>
           {expandedSections.tiktok ? <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" /> : <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />}
@@ -547,10 +548,10 @@ export default function DataLayer() {
       <div className="bg-sf-dark rounded-xl shadow-lg overflow-hidden border border-sf-blue/10">
         <button
           onClick={() => toggleSection('meta')}
-          className="w-full bg-sf-blue text-white p-3 sm:p-4 flex items-center justify-between hover:brightness-110 transition"
+          className="w-full bg-platform-meta text-white p-3 sm:p-4 flex items-center justify-between hover:brightness-110 transition"
         >
           <div className="flex items-center gap-2 sm:gap-3">
-            <Share2 className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <MetaIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
             <div className="text-left min-w-0">
               <h3 className="text-sm sm:text-base font-bold">Meta/Facebook Trends</h3>
               <p className="text-[10px] sm:text-xs text-white/80">Redes sociales - Score: {scores.social}/10</p>
@@ -674,10 +675,10 @@ export default function DataLayer() {
       <div className="bg-sf-dark rounded-xl shadow-lg overflow-hidden border border-sf-blue/10">
         <button
           onClick={() => toggleSection('ga4')}
-          className="w-full bg-sf-warning text-white p-3 sm:p-4 flex items-center justify-between hover:brightness-110 transition"
+          className="w-full bg-platform-ga4 text-white p-3 sm:p-4 flex items-center justify-between hover:brightness-110 transition"
         >
           <div className="flex items-center gap-2 sm:gap-3">
-            <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <GoogleAnalyticsIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
             <div className="text-left min-w-0">
               <h3 className="text-sm sm:text-base font-bold">Google Analytics 4</h3>
               <p className="text-[10px] sm:text-xs text-white/80">Conversión - Score: {scores.intent}/10</p>
