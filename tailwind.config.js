@@ -43,6 +43,15 @@ export default {
           textGray: '#9CA3AF',
           mediumGray: '#6B7280',
         },
+        // Colores oficiales de marca de plataformas (NO modificar — son los hex oficiales)
+        platform: {
+          google:    '#1A73E8',  // Google Trends / Google Search
+          tiktok:    '#010101',  // TikTok (negro oficial)
+          meta:      '#1877F2',  // Meta / Facebook brand blue
+          ga4:       '#E37400',  // Google Analytics 4
+          youtube:   '#FF0000',  // YouTube
+          instagram: '#E4405F',  // Instagram
+        },
         // Semantic colors (WCAG AA compatible)
         success: '#22C55E',
         warning: '#F59E0B',
